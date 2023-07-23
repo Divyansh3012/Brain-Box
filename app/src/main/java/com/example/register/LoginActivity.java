@@ -12,7 +12,6 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.FirebaseApp;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -83,7 +82,7 @@ public class LoginActivity extends AppCompatActivity {
                                     String password_data = (String) documentSnapshot.get("password");
 
                                     if (email.equals(emailid) && password.equals(password_data)){
-                                       Intent intent = new Intent(LoginActivity.this, HomePageActivity.class);
+                                       Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                                        startActivity(intent);
                                     }else{
                                         Toast.makeText(LoginActivity.this, "Login Failure!", Toast.LENGTH_SHORT).show();
