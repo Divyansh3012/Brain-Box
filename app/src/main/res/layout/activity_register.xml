@@ -27,15 +27,15 @@
             android:textStyle="bold" />
 
 
-        <EditText
-            android:id="@+id/regsname"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="50dp"
-            android:hint="Firstname"
-            android:inputType="textEmailAddress"
-            android:padding="10dp"
-            android:textColor="@color/black" />
+<!--        <EditText-->
+<!--            android:id="@+id/regsname"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="50dp"-->
+<!--            android:layout_marginTop="50dp"-->
+<!--            android:hint="Firstname"-->
+<!--            android:inputType="textEmailAddress"-->
+<!--            android:padding="10dp"-->
+<!--            android:textColor="@color/black" />-->
 
         <EditText
             android:id="@+id/regemail"

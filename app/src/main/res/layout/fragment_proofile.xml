@@ -4,16 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="	#B2BEB5"
+    android:background="#B2BEB5"
     tools:context=".fragment.BoookMarkFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraint1"
         android:layout_width="match_parent"
-        android:layout_height="229dp"
+        android:layout_height="wrap_content"
         android:background="#7393B3"
-        app:layout_constraintBottom_toTopOf="@id/constraint2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -45,79 +44,91 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraint2"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_margin="15dp"
-        android:background="@color/white"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/constraint1">
+        app:layout_constraintTop_toBottomOf="@+id/constraint1">
 
-        <ImageView
-            android:id="@+id/profile"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_margin="10dp"
-            android:src="@drawable/profilenameicon"
-            app:layout_constraintBottom_toBottomOf="@id/constraint2"
-            app:layout_constraintEnd_toStartOf="@id/textview_show_full_name"
-            app:layout_constraintStart_toStartOf="@id/constraint2"
-            app:layout_constraintTop_toTopOf="@id/constraint2" />
-
-        <TextView
-            android:id="@+id/textview_show_full_name"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_marginStart="50dp"
-            android:hint="ProfileName"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraint2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:background="@color/white"
+            app:layout_constraintBottom_toTopOf="@id/constraint3"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/constraint2"
-            app:layout_constraintStart_toStartOf="@id/constraint2"
-            app:layout_constraintTop_toTopOf="@id/constraint2" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/profile"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_margin="10dp"
+                android:src="@drawable/profilenameicon"
+                app:layout_constraintBottom_toBottomOf="@id/constraint2"
+                app:layout_constraintEnd_toStartOf="@id/profilename"
+                app:layout_constraintStart_toStartOf="@id/constraint2"
+                app:layout_constraintTop_toTopOf="@id/constraint2" />
+
+            <EditText
+                android:id="@+id/profilename"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="50dp"
+                android:hint="ProfileName"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/constraint2"
+                app:layout_constraintStart_toStartOf="@id/constraint2"
+                app:layout_constraintTop_toTopOf="@id/constraint2" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraint3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="15dp"
+            android:background="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/constraint2">
+
+            <ImageView
+                android:id="@+id/profile2"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_margin="10dp"
+                android:src="@drawable/email"
+                app:layout_constraintBottom_toBottomOf="@id/constraint3"
+                app:layout_constraintEnd_toStartOf="@id/showemail"
+                app:layout_constraintStart_toStartOf="@id/constraint3"
+                app:layout_constraintTop_toTopOf="@id/constraint3" />
+
+            <EditText
+                android:id="@+id/showemail"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="50dp"
+                android:hint="Email"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/constraint3"
+                app:layout_constraintStart_toStartOf="@id/constraint3"
+                app:layout_constraintTop_toTopOf="@id/constraint3" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraint3"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_margin="15dp"
-        android:background="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/constraint2">
-
-        <ImageView
-            android:id="@+id/profile2"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_margin="10dp"
-            android:src="@drawable/email"
-            app:layout_constraintBottom_toBottomOf="@id/constraint3"
-            app:layout_constraintEnd_toStartOf="@id/textview_show_email"
-            app:layout_constraintStart_toStartOf="@id/constraint3"
-            app:layout_constraintTop_toTopOf="@id/constraint3" />
-
-        <TextView
-            android:id="@+id/textview_show_email"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_marginStart="50dp"
-            android:hint="Email"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/constraint3"
-            app:layout_constraintStart_toStartOf="@id/constraint3"
-            app:layout_constraintTop_toTopOf="@id/constraint3" />
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
