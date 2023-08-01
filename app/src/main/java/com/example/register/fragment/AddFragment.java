@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -21,13 +22,11 @@ import com.example.register.util.data;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.EventListener;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.FirebaseFirestoreException;
-import com.google.firebase.firestore.Source;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
+import java.io.UnsupportedEncodingException;
+import java.util.Base64;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -43,16 +42,17 @@ public class AddFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     View view;
-    DocumentReference documentReference;  
+    //    DocumentReference documentReference;
+    DatabaseReference reference;
 
     private EditText TitleEdit, DecriptionEdit, QuestionEdit, LanguageEdit;
-    FirebaseFirestore db;
+    FirebaseDatabase db;
     private Button AddQuestionSubmit;
     FirebaseAuth fauth;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
-    private String mParam2;
+    private String mParam2, NewEmail;
 
     public AddFragment() {
         // Required empty public constructor
@@ -100,22 +100,19 @@ public class AddFragment extends Fragment {
         LanguageEdit = view.findViewById(R.id.LanguageEdit);
 
         //Database Variable
-        db = FirebaseFirestore.getInstance();
+        db = FirebaseDatabase.getInstance();
+        reference = db.getReference("User");
 
         // Submit Button
         AddQuestionSubmit = view.findViewById(R.id.SubmitQuestion);
 
         fauth = FirebaseAuth.getInstance();
 
-        String get = fauth.getCurrentUser().getEmail();
+        String Email = fauth.getCurrentUser().getEmail();
 
 
-//        Log.d("TAG100", "onCreate: getmail  ");
+        Log.d("TAG100", "onCreate: encoded mail " + Email);
 
-//        Toast.makeText(getContext(),getemail,Toast.LENGTH_SHORT).show();
-
-
-//        Toast.makeText(getContext(),path,Toast.LENGTH_SHORT).show();
         AddQuestionSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -127,28 +124,20 @@ public class AddFragment extends Fragment {
                 if (title.isEmpty() || question.isEmpty() || description.isEmpty() || language.isEmpty()) {
                     Toast.makeText(getContext(), "Pls All fille ", Toast.LENGTH_SHORT).show();
                 } else {
-
                     Map<String, String> user = new HashMap<>();
                     user.put("Title", title);
                     user.put("Question", question);
                     user.put("Description", description);
                     user.put("Language", language);
-                    documentReference = db.collection("DATA").document(get);
-                    Log.d("TAG100", "onCreate: " + documentReference);
-                    documentReference.addSnapshotListener(new EventListener<DocumentSnapshot>() {
-                        @Override
-                        public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
-                            Log.d("TAG100", "onCreate: " + value);
 
-                            documentReference.set(user);
-//                            documentReference.set(question);
-//                            documentReference.set(description);
-//                            documentReference.set(language);
-                            Toast.makeText(getContext(), "Submitted", Toast.LENGTH_SHORT).show();
+                    String key = reference.push().getKey();
 
+                    reference.child(Email.replace(".", ",")).child(key).child("Title").setValue(title);
+                    reference.child(Email.replace(".", ",")).child(key).child("Question").setValue(question);
+                    reference.child(Email.replace(".", ",")).child(key).child("Description").setValue(description);
+                    reference.child(Email.replace(".", ",")).child(key).child("Language").setValue(language);
+                    Toast.makeText(getContext(), "Submitted", Toast.LENGTH_SHORT).show();
 
-                        }
-                    });
                 }
             }
         });

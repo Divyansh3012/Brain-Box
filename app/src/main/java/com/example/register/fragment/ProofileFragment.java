@@ -13,11 +13,6 @@ import android.widget.TextView;
 
 import com.example.register.R;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.EventListener;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.FirebaseFirestoreException;
 
 import java.util.concurrent.Executor;
 
@@ -34,7 +29,7 @@ public class ProofileFragment extends Fragment {
     private static final String ARG_PARAM2 = "param2";
 
     private FirebaseAuth fauth;
-    private FirebaseFirestore fstore;
+//    private FirebaseFirestore fstore;
 
     EditText ShowProfileName, ShowEmail;
 

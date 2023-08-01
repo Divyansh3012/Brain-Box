@@ -19,9 +19,6 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.ktx.Firebase;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -33,7 +30,7 @@ public class LoginActivity extends AppCompatActivity {
 
     FirebaseAuth firebaseAuth;
 
-    FirebaseFirestore firebase;
+//    FirebaseFirestore firebase;
     private Button loginbtn, signbtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +41,7 @@ public class LoginActivity extends AppCompatActivity {
         loginpass = findViewById(R.id.loginpwd);
         loginbtn = findViewById(R.id.loginbtn);
         signbtn = findViewById(R.id.registerbtn);
-        firebase = FirebaseFirestore.getInstance();
+//        firebase = FirebaseFirestore.getInstance();
         firebaseAuth = FirebaseAuth.getInstance();
         shp = getSharedPreferences("myprefrences", MODE_PRIVATE);
 

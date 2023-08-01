@@ -19,9 +19,6 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -32,7 +29,7 @@ public class RegiterActivity extends AppCompatActivity {
 
     private Button register;
 
-    FirebaseFirestore db;
+//    FirebaseFirestore db;
 
     FirebaseAuth fauth;
 
@@ -46,12 +43,12 @@ public class RegiterActivity extends AppCompatActivity {
 //        nameedt = findViewById(R.id.regsname);
         register = findViewById(R.id.regbtn);
 
-        db = FirebaseFirestore.getInstance();
+//        db = FirebaseFirestore.getInstance();
 
         fauth = FirebaseAuth.getInstance();
 
-        String user = fauth.getCurrentUser().getUid();
-        Log.d("TAG1010", "onCreate: " + user);
+//        String user = fauth.getCurrentUser().getUid();
+//        Log.d("TAG1010", "onCreate: " + user);
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -117,11 +114,12 @@ public class RegiterActivity extends AppCompatActivity {
                                 if (task.isSuccessful()) {
                                     String authe = fauth.getCurrentUser().getUid();
                                     Toast.makeText(getApplicationContext(), "Registration Success!!"+authe, Toast.LENGTH_SHORT).show();
-                                    DocumentReference documentReference = db.collection("DATA").document(email);
+//                                    DocumentReference documentReference = db.collection("DATA").document(email);
                                     Map<String, Object> user = new HashMap<>();
 //                                    user.put("name", name);
                                     user.put("email", email);
                                     user.put("password", password);
+/*
                                     documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                                         @Override
                                         public void onSuccess(Void unused) {
@@ -134,6 +132,7 @@ public class RegiterActivity extends AppCompatActivity {
 
                                         }
                                     });
+*/
 
                                     Intent intent = new Intent(RegiterActivity.this, MainActivity.class);
                                     startActivity(intent);
