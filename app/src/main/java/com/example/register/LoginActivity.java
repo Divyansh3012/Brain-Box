@@ -22,7 +22,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private EditText loginemail,loginpass;
+    private EditText loginemail, loginpass;
 
     SharedPreferences shp;
     SharedPreferences.Editor shpeditor;
@@ -30,8 +30,9 @@ public class LoginActivity extends AppCompatActivity {
 
     FirebaseAuth firebaseAuth;
 
-//    FirebaseFirestore firebase;
+    //    FirebaseFirestore firebase;
     private Button loginbtn, signbtn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,16 +70,15 @@ public class LoginActivity extends AppCompatActivity {
                 email = loginemail.getText().toString();
                 password = loginpass.getText().toString();
 
-                if(email.isEmpty()){
-                    Toast.makeText(getApplicationContext(),"Enter valid email",Toast.LENGTH_LONG).show();
+                if (email.isEmpty()) {
+                    Toast.makeText(getApplicationContext(), "Enter valid email", Toast.LENGTH_LONG).show();
                     return;
                 }
-                if (password.isEmpty()){
-                    Toast.makeText(getApplicationContext(),"Enter valid password",Toast.LENGTH_LONG).show();
+                if (password.isEmpty()) {
+                    Toast.makeText(getApplicationContext(), "Enter valid password", Toast.LENGTH_LONG).show();
                     return;
-                }
-                else {
-                    check(email,password);
+                } else {
+                    check(email, password);
                 }
             }
 
@@ -88,14 +88,14 @@ public class LoginActivity extends AppCompatActivity {
                         .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
-                                if (task.isSuccessful()){
+                                if (task.isSuccessful()) {
                                     Log.w("TAG1010", "signInWithEmail:Suc");
-                                    FirebaseUser user =firebaseAuth.getCurrentUser();
+                                    FirebaseUser user = firebaseAuth.getCurrentUser();
                                     Intent intent;
                                     intent = new Intent(LoginActivity.this, MainActivity.class);
                                     startActivity(intent);
-                                }else {
-                                    Log.w("TAG1010", "signInWithEmail:failure",task.getException());
+                                } else {
+                                    Log.w("TAG1010", "signInWithEmail:failure", task.getException());
                                 }
                             }
                         }).addOnFailureListener(new OnFailureListener() {
@@ -146,7 +146,7 @@ public class LoginActivity extends AppCompatActivity {
 //                                    }
 //                                });
 //                    }
-                }
+            }
         });
 
     }

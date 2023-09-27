@@ -1,12 +1,9 @@
 package com.example.register;
 
+import android.os.Bundle;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
 
 import com.example.register.fragment.AddFragment;
 import com.example.register.fragment.BoookMarkFragment;
