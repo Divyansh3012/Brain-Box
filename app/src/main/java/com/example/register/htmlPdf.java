@@ -68,11 +68,11 @@ public class htmlPdf extends AppCompatActivity {
                             startActivity(intent);
                         }
                         // We will view the pdf
-                        if (which == 1) {
-                            Intent intent = new Intent(v.getContext(), ViewPdfActivity.class);
-                            intent.putExtra("url", message);
-                            startActivity(intent);
-                        }
+//                        if (which == 1) {
+//                            Intent intent = new Intent(v.getContext(), ViewPdfActivity.class);
+//                            intent.putExtra("url", message);
+//                            startActivity(intent);
+//                        }
                     }
                 });
                 builder.show();
