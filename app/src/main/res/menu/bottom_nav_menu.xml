@@ -19,7 +19,7 @@
     <item
         android:id="@+id/navigation_bookmark"
         android:icon="@drawable/baseline_bookmark_24"
-        android:title="BookMark"></item>
+        android:title="Documents"></item>
     <item
         android:id="@+id/navigation_profile"
         android:icon="@drawable/baseline_account_circle_24"

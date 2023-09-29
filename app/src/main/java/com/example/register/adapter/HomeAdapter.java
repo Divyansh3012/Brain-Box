@@ -1,5 +1,7 @@
 package com.example.register.adapter;
 
+import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,10 +12,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.register.R;
 
+import java.util.ArrayList;
+
 public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
-    String string;
-    public HomeAdapter(String str) {
-        this.string = str;
+    ArrayList list;
+    Context context;
+    public HomeAdapter(Context context, ArrayList list) {
+        this.list = list;
+        this.context = context;
     }
 
     @NonNull
@@ -22,13 +28,14 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
         View listItem = layoutInflater.inflate(R.layout.rowlayout, parent, false);
         ViewHolder viewHolder = new ViewHolder(listItem);
+        Log.d("TAG22", "onBindViewHolder: ");
         return viewHolder;
     }
 
     @Override
     public void onBindViewHolder(@NonNull HomeAdapter.ViewHolder holder, int position) {
-
-        holder.showQuesEmail.setText(string);
+        holder.showQuesTitle.setText((String)list.get(position));
+        Log.d("TAG22", "onBindViewHolder: ");
 //        holder.showQuesTitle.setText("Question");
 
     }
@@ -36,7 +43,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
 
     @Override
     public int getItemCount() {
-        return 0;
+        return list.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -44,7 +51,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            showQuesTitle = itemView.findViewById(R.id.showQuesEmail);
+            showQuesTitle = (TextView) itemView.findViewById(R.id.showQuesEmai);
 //            showQuesEmail = itemView.findViewById(R.id.showQuesEmail);
 
         }

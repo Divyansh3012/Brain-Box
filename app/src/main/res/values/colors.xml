@@ -5,4 +5,15 @@
     <color name="lavender">#8692f2</color>
     <color name="aqua">#00FFFF</color>
     <color name="navy">#000080</color>
+    <color name="colorPrimary" >#0277bd</color>
+    <color name="colorPrimaryDark" >#004c8c</color>
+    <color name="colorAccent" >#0277bd</color>
+
+    <color name="textColor" >#121212</color>
+    <color name="deepPurple" >#7c4dff</color>
+    <color name="yellow" >#ffb300</color>
+    <color name="green1" >#00bfa5</color>
+    <color name="pink" >#d242ec</color>
+    <color name="red2" >#F73E7C</color>
+    <color name="lightgrey" >#c1c1c1</color>
 </resources>

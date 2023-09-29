@@ -1,5 +1,6 @@
 package com.example.register.fragment;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -12,6 +13,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.example.register.R;
@@ -44,7 +46,7 @@ public class HomeFragment extends Fragment {
 
     // TODO: Rename and change types of parameters
     private String mParam1;
-
+    ArrayList list = new ArrayList<>();
     private String tempTitle;
     private RecyclerView recyclerView;
 
@@ -53,9 +55,10 @@ public class HomeFragment extends Fragment {
     FirebaseAuth firebaseAuth;
     private View view;
     FirebaseDatabase db;
-    private ArrayList<List> titalelist = new ArrayList<>();
+//    private ArrayList<List> titalelist = new ArrayList<>();
 
     String str = "Helolo";
+    Context context;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -91,17 +94,44 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        context = container.getContext();
         view = inflater.inflate(R.layout.fragment_home, container, false);
         // Inflate the layout for this fragment
         db = FirebaseDatabase.getInstance();
         firebaseAuth = FirebaseAuth.getInstance();
+
+
         recyclerView = view.findViewById(R.id.res);
-        HomeAdapter adapter = new HomeAdapter(str);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        HomeAdapter adapter = new HomeAdapter(context,list);
+//        Log.d("TAG22", "onBindViewHolder: ");
+
+
+
+        String current = firebaseAuth.getCurrentUser().getEmail();
+        String email = current.replace(".",",");
+
+        DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
+        DatabaseReference electricianRef = rootRef.child("User").child(email);
+        ValueEventListener valueEventListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                for(DataSnapshot ds : dataSnapshot.getChildren()) {
+                    String lName = ds.child("Title").getValue(String.class);
+                    list.add(lName);
+
+
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {}
+        };
+        electricianRef.addListenerForSingleValueEvent(valueEventListener);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
+        recyclerView.setLayoutManager(linearLayoutManager);
+
         recyclerView.setAdapter(adapter);
-
-
-
 
         return view;
 
