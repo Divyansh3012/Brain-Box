@@ -19,7 +19,7 @@ import java.util.List;
 public class SearchFragment extends AppCompatActivity implements View.OnClickListener {
 
     TextView totalQuestionsTextView;
-    TextView questionTextView;
+    TextView questionTextView, hh;
 
     Button ansA, ansB, ansC, ansD;
     Button submitBtn;
