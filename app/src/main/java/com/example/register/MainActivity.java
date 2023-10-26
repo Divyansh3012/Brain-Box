@@ -9,6 +9,7 @@ import com.example.register.fragment.AddFragment;
 import com.example.register.fragment.BoookMarkFragment;
 import com.example.register.fragment.HomeFragment;
 import com.example.register.fragment.ProofileFragment;
+import com.example.register.fragment.QuizFragment;
 import com.example.register.fragment.SearchFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -28,12 +29,12 @@ public class MainActivity extends AppCompatActivity {
     private final BottomNavigationView.OnNavigationItemSelectedListener navListener = item -> {
 
         Fragment selectedFragment = null;
-        AppCompatActivity selectedactivity= null;
+//        AppCompatActivity selectedactivity= null;
         int itemId = item.getItemId();
         if (itemId == R.id.navigation_home) {
             selectedFragment = new HomeFragment();
         } else if (itemId == R.id.navigation_search) {
-            selectedFragment = new SearchFragment();
+            selectedFragment = new QuizFragment();
         } else if (itemId == R.id.navigation_add) {
             selectedFragment = new AddFragment();
         } else if (itemId == R.id.navigation_bookmark) {
