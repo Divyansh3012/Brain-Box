@@ -17,8 +17,10 @@ import java.util.ArrayList;
 public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
     ArrayList list;
     Context context;
-    public HomeAdapter(Context context, ArrayList list) {
+    String email;
+    public HomeAdapter(Context context, ArrayList list, String email) {
         this.list = list;
+        this.email = email;
         this.context = context;
     }
 
@@ -35,7 +37,8 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull HomeAdapter.ViewHolder holder, int position) {
         holder.showQuesTitle.setText((String)list.get(position));
-        Log.d("TAG22", "onBindViewHolder: ");
+        holder.showQuesEmail.setText(email);
+        Log.d("TAG22", "onBindViewHolder: "+ email);
 //        holder.showQuesTitle.setText("Question");
 
     }
@@ -51,7 +54,8 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            showQuesTitle = (TextView) itemView.findViewById(R.id.showQuesEmai);
+            showQuesTitle = (TextView) itemView.findViewById(R.id.showQuesTitle);
+            showQuesEmail = (TextView) itemView.findViewById(R.id.showQuesEmai);
 //            showQuesEmail = itemView.findViewById(R.id.showQuesEmail);
 
         }

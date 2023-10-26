@@ -55,6 +55,7 @@ public class HomeFragment extends Fragment {
     FirebaseAuth firebaseAuth;
     private View view;
     FirebaseDatabase db;
+    String current;
 //    private ArrayList<List> titalelist = new ArrayList<>();
 
     String str = "Helolo";
@@ -99,15 +100,15 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         db = FirebaseDatabase.getInstance();
         firebaseAuth = FirebaseAuth.getInstance();
-
+        current = firebaseAuth.getCurrentUser().getEmail();
 
         recyclerView = view.findViewById(R.id.res);
-        HomeAdapter adapter = new HomeAdapter(context,list);
-//        Log.d("TAG22", "onBindViewHolder: ");
+        HomeAdapter adapter = new HomeAdapter(context,list,current);
+        Log.d("TAG22", "onBindViewHolder: "+"HEllo");
 
 
 
-        String current = firebaseAuth.getCurrentUser().getEmail();
+
         String email = current.replace(".",",");
 
         DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
@@ -121,17 +122,19 @@ public class HomeFragment extends Fragment {
                     list.add(lName);
 
 
+
                 }
+                LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
+                recyclerView.setLayoutManager(linearLayoutManager);
+
+                recyclerView.setAdapter(adapter);
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {}
         };
         electricianRef.addListenerForSingleValueEvent(valueEventListener);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
-        recyclerView.setLayoutManager(linearLayoutManager);
 
-        recyclerView.setAdapter(adapter);
 
         return view;
 

@@ -5,15 +5,13 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-
-
     <androidx.cardview.widget.CardView
         android:id="@+id/showcdview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
@@ -25,11 +23,12 @@
             tools:layout_editor_absoluteY="50dp"
             tools:ignore="MissingConstraints" />
 
-
         <TextView
-            android:id="@+id/lshowQuesTitle"
+            android:id="@+id/showQuesTitle"
             android:layout_width="307dp"
             android:layout_height="54dp"
+            android:textSize="22dp"
+            android:text="Title"
             android:layout_marginTop="48dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -41,9 +40,12 @@
             android:layout_width="309dp"
             android:layout_height="48dp"
             android:layout_marginTop="4dp"
+            android:text="Email"
+            android:textSize="20dp"
+            android:layout_marginStart="52dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/showQuesEmail" />
+            app:layout_constraintStart_toEndOf="@id/showQuesImg"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.cardview.widget.CardView>
 
