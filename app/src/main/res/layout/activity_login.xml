@@ -21,7 +21,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Loign Page"
+            android:text="Login Page"
             android:textAlignment="center"
             android:textSize="22dp"
             android:textStyle="bold" />

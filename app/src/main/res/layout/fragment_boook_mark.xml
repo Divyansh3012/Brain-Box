@@ -1,287 +1,32 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<!-- fragment_boook_mark.xml -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".Documents">
-
-    <LinearLayout
+    android:layout_height="match_parent">
+    <!--#TO_DO_list funcatnality-->
+    <EditText
+        android:id="@+id/edit_text_todo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:layout_margin="10dp"
-        android:padding="10dp">
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:hint="Enter Your Task"
+        android:minHeight="48dp" />
 
-
-
-
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="130dp"
-            android:layout_height="150dp"
-            android:id="@+id/javaMaterials"
-            android:elevation="5dp"
-            android:layout_margin="10dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:gravity="center">
-
-                <ImageView
-                    android:layout_width="64dp"
-                    android:layout_height="64dp"
-                    android:background="@drawable/circle_red"
-                    android:src="@drawable/ic_java"
-                    android:padding="15dp"/>
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/black"
-                    android:layout_marginTop="10dp"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Java"
-                    android:textStyle="bold"
-                    android:padding="5dp"
-                    android:layout_marginTop="10dp"
-                    android:textColor="@color/textColor"/>
-
-
-
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
-
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="130dp"
-            android:layout_height="150dp"
-            android:id="@+id/androidMaterials"
-            android:elevation="5dp"
-            android:layout_margin="10dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:gravity="center">
-
-                <ImageView
-                    android:layout_width="64dp"
-                    android:layout_height="64dp"
-                    android:background="@drawable/circle_green"
-                    android:src="@drawable/ic_android"
-                    android:padding="15dp"/>
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/lightgrey"
-                    android:layout_marginTop="10dp"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Android"
-                    android:textStyle="bold"
-                    android:padding="5dp"
-                    android:layout_marginTop="10dp"
-                    android:textColor="@color/textColor"/>
-
-
-
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
-
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
+    <Button
+        android:id="@+id/button_add_todo"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:layout_margin="10dp"
-        android:padding="10dp">
+        android:layout_below="@id/edit_text_todo"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="16dp"
+        android:text="ADD"/>
 
-
-
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="130dp"
-            android:layout_height="150dp"
-            android:id="@+id/htmlMaterials"
-            android:elevation="5dp"
-            android:layout_margin="10dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:gravity="center">
-
-                <ImageView
-                    android:layout_width="64dp"
-                    android:layout_height="64dp"
-                    android:background="@drawable/circle_purple"
-                    android:src="@drawable/ic_html"
-                    android:padding="15dp"/>
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/lightgrey"
-                    android:layout_marginTop="10dp"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="HTMl"
-                    android:textStyle="bold"
-                    android:padding="5dp"
-                    android:layout_marginTop="10dp"
-                    android:textColor="@color/textColor"/>
-
-
-
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
-
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="130dp"
-            android:layout_height="150dp"
-            android:id="@+id/cssMaterials"
-            android:elevation="5dp"
-            android:layout_margin="10dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:gravity="center">
-
-                <ImageView
-                    android:layout_width="64dp"
-                    android:layout_height="64dp"
-                    android:background="@drawable/circle_yellow"
-                    android:src="@drawable/ic_css"
-                    android:padding="15dp"/>
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/lightgrey"
-                    android:layout_marginTop="10dp"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="CSS"
-                    android:textStyle="bold"
-                    android:padding="5dp"
-                    android:layout_marginTop="10dp"
-                    android:textColor="@color/textColor"/>
-
-
-
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
-
-
-    </LinearLayout>
-
-    <LinearLayout
+    <ListView
+        android:id="@+id/list_view_todo"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:padding="10dp"
-        android:gravity="center"
-        android:orientation="horizontal">
-
-
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/flutterMaterials"
-            android:layout_width="130dp"
-            android:layout_height="150dp"
-            android:elevation="5dp"
-            android:layout_margin="10dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="64dp"
-                    android:layout_height="64dp"
-                    android:background="@drawable/circle_green"
-                    android:padding="15dp"
-                    android:src="@drawable/ic_flutter" />
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@color/lightgrey" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:padding="5dp"
-                    android:text="Dart"
-                    android:textColor="@color/textColor"
-                    android:textStyle="bold" />
-
-
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
-
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/jsMaterials"
-            android:layout_width="130dp"
-            android:layout_height="150dp"
-            android:elevation="5dp"
-            android:layout_margin="10dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="64dp"
-                    android:layout_height="64dp"
-                    android:background="@drawable/circle_purple"
-                    android:padding="15dp"
-                    android:src="@drawable/ic_js" />
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@color/lightgrey" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:padding="5dp"
-                    android:text="JavaScript"
-                    android:textColor="@color/textColor"
-                    android:textStyle="bold" />
-
-
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
-
-
-    </LinearLayout>
-
-</LinearLayout>
+        android:layout_height="match_parent"
+        android:layout_below="@id/button_add_todo"
+        android:layout_marginTop="16dp"/>
+</RelativeLayout>
